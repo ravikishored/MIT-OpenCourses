@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}bootstrap/css/bootstrap.css">
+  
+</head>
+
+<body>
+  
+     <h1 class="text-center"> MIT Open-Courses</h1><br>
+     <p class="text-center"> Please give comment on Course like poor|good|excellent</p>
+     <br>
+     
+<div class="form">
+<form class="form-horizontal" method ='POST' action='/database'>
+{% for id, title in data.items %}
+  <div class="control-group" >         
+    <label class="control-label" for="CourseName" >{{ title }}</label>
+     <div class="controls">
+       <input class="inline" type="text" id="comment"  name="{{id}}" placeholder="comment">
+     </div>
+  </div>
+{% endfor %}
+</div>
+  <div class="controls">
+    <button type="submit" class="btn">  Submit  </button>
+  </div>
+</form>
+</body>
+</html>
