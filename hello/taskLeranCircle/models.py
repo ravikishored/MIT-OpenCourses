@@ -13,7 +13,7 @@ class Comments(models.Model):
     
     def __unicode__(self):
         return "Title: {} --- Comment: {}".format(self.title,self.comment)
-
+         #return "{}".format(self.title,self.comment)
 
 admin.site.register(Course)
 admin.site.register(Comments)

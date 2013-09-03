@@ -6,7 +6,8 @@ urlpatterns = patterns('taskLeranCircle.views',
 
 
 	url(r'^$', 'home', name='home'),
-        url(r'^database','databaseInsertion',name='databaseInsertion'),
+        url(r'^comments', 'getComments', name='getComments'),
+        url(r'^database','saveComments',name='saveComments'),
 
         #url(r'^$', 'mit', name='mit'),
         

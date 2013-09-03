@@ -9,20 +9,38 @@
      <h1 class="text-center"> MIT Open-Courses</h1><br>
      <p class="text-center"> Please give comment on Course like poor|good|excellent</p>
      <br>
-     
-<div class="form">
+     <ul class="nav nav-pills">
+       <li class="active"><a href="/">Home</a></li>
+      <li><a href="/comments">ViewComments</a></li>
+      </ul>
+   {%if success%}
+     <script type="text/javascript">
+
+document.getElementById("demo").innerHTML="<h2>  comments are successfully inserted </h2>";
+
+</script>
+     {% endif %}
+<div class="form" id="demo">
 <form class="form-horizontal" method ='POST' action='/database'>
 {% for id, title in data.items %}
   <div class="control-group" >         
     <label class="control-label" for="CourseName" >{{ title }}</label>
      <div class="controls">
-       <input class="inline" type="text" id="comment"  name="{{id}}" placeholder="comment">
+       <input class="inline"  type="text" id="comment"  name="{{id}}" placeholder="comment">
      </div>
   </div>
+  
 {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+            <a href="?page={{ previous_page_number }}">previous</a>
+        
+            <a href="?page={{ next_page_number }}">next</a>
+    </span>
 </div>
-  <div class="controls">
-    <button type="submit" class="btn">  Submit  </button>
+</div>
+    <div class="controls">
+       <button type="submit" id="submit" class="btn">  Submit  </button>
   </div>
 </form>
 </body>
