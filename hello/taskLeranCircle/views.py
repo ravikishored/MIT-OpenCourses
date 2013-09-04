@@ -45,15 +45,10 @@ def home(request):
 def getComments(request):
 	
 	comments_object = Comments.objects.all()
-	#data = {'comments':comments_object}
-	#import pdb
-	#pdb.set_trace()
 	comment_data=dict()
 	for comments in comments_object:
 		comment_data[comments.title]=comments.comment
 	data={'data':comment_data}
-	#import pdb
-	#pdb.set_trace()
 	return render_to_response("comments.html",data,context_instance=RequestContext(request))
 	#return HttpResponse
 
@@ -62,10 +57,12 @@ def saveComments(request):
 	courses=request.POST
 	for course in courses:
 		if courses[course]:
+			#import pdb
+			#pdb.set_trace()
 			commentObj = Comments(title=Course.objects.get(id=course), comment=courses[course])
 			commentObj.save()
-	success="success"
-	return render_to_response("form.html",success,context_instance=RequestContext(request))
+	
+	return render_to_response("success.html",context_instance=RequestContext(request))
 	#return HttpResponseRedirect(reverse('home'))
 	
 	
